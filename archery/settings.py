@@ -21,8 +21,8 @@ env = environ.Env(
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(List[str], ["*"]),
     SECRET_KEY=(str, "hfusaf2m4ot#7)fkw#di2bu6(cv0@opwmafx5n#6=3d%x^hpl6"),
-    DATABASE_URL=(str, "mysql://root:@127.0.0.1:3306/archery"),
-    CACHE_URL=(str, "redis://127.0.0.1:6379/0"),
+    DATABASE_URL=(str, "mysql://root:@192.168.56.122:3308/archery"),
+    CACHE_URL=(str, "redis://192.168.56.122:6379/0"),
     # 系统外部认证目前支持LDAP、OIDC、DINGDING三种，认证方式只能启用其中一种，如果启用多个，实际生效的只有一个，优先级LDAP > DINGDING > OIDC
     ENABLE_LDAP=(bool, False),
     ENABLE_OIDC=(bool, False),
@@ -166,6 +166,9 @@ DATABASES = {
         **{
             "DEFAULT_CHARSET": "utf8mb4",
             "CONN_MAX_AGE": 50,
+            'NAME': 'archery',
+            'USER': 'archery',
+            'PASSWORD': 'archery',
             "OPTIONS": {
                 "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
                 "charset": "utf8mb4",
